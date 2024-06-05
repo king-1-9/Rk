@@ -23,7 +23,7 @@ Nem = config.BOT_NAME + " ابحث"
 @app.on_message(command(["song","/song", "بحث",Nem]))
 async def song_downloader(client, message: Message):
     query = " ".join(message.command[1:])
-    m = await message.reply_text("<b>⇜ جـارِ البحث عـن المقطـع الصـوتـي . . .</b>")
+    m = await message.reply_text("<b>⇜جـارِ البحث ..</b>")
     ydl_ops = {
         'format': 'bestaudio[ext=m4a]',
         'keepvideo': True,
@@ -46,13 +46,13 @@ async def song_downloader(client, message: Message):
         await m.edit("ماش ماتعرف تشرح الاغنيه ماعرفت القاها .\nعيد من جديد يقلبي🫠.")
         print(str(e))
         return
-    await m.edit("<b>بيجيك المقطع اصبر ..♪</b>")
+    await m.edit("<b>جاري التحميل ♪</b>")
     try:
         with yt_dlp.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"𖡃 @{app.username} "
+        rep = f"( {app.mention} )"
         host = str(info_dict["uploader"])
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
