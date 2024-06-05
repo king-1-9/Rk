@@ -58,7 +58,6 @@ async def song_downloader(client, message: Message):
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
             secmul *= 60
-        await m.edit("<b>بيجيك المقطع اصبر ....♪</b>")
         
         await message.reply_audio(
             audio=audio_file,
