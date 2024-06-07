@@ -51,8 +51,8 @@ class Userbot(Client):
         if config.STRING1:
             await self.one.start()
             try:
-                await self.one.join_chat("EF_19")
-                await self.one.join_chat("jnssghb")
+                #await self.one.join_chat("EF_19")
+                #await self.one.join_chat("jnssghb")
                 await self.one.join_chat("C_C2I")
             except:
                 pass
